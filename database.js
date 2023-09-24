@@ -49,7 +49,7 @@ app.get('/',(req,res)=>{
     let z=1;
     for (let i = 0; i < length; i++){
       
-      fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
+      fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
       data1[i]['marksheetschool']='output'+z+'.png';
         
       z=z+1;
