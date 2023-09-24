@@ -1,0 +1,176 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni Registration form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        #center{
+            margin: 0px;
+            justify-content : center;
+            border: 3px solid black;
+            margin-bottom: 10px;
+        }
+        #bottom{
+            margin-bottom: 40px;
+        }
+        .flex-container{
+            display: flex;
+            flex-direction: column;
+        }
+        img{
+            width: 200px;
+        }
+        p{
+            font-weight: bold;
+        }
+        .navigate{
+            display:flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <div class="heading">
+                <span class="fs-2">Record</span>
+            </div>
+        </header>
+        
+        <% for (let i = prev; i < l; i++){ %>
+        <div class="row g-5" id="center">
+            <div class="col-md-7 col-lg-8" id="bottom">
+                <div class="row g-3 ">
+                    <div class="col-sm-4">
+                        <label class="form-label">First name</label>
+                        <p><%= data[i]['firstName'] %></p> 
+                    </div>
+                
+
+                    <div class="col-sm-4">
+                        <label class="form-label">Middle name</label>
+                        <p><%= data[i]['middleName'] %></p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label class="form-label">Last name</label>
+                        <p><%= data[i]['lastName'] %></p> 
+                    </div>
+
+                    <div class="col-6">
+                        <label class="form-label">Email </label>
+                        <p><%= data[i]['email'] %></p>
+                    </div>
+
+                    <div class="col-4">
+                        <label class="form-label">Phone Number</label>
+                        <p><%= data[i]['phoneNo'] %></p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">Gender</label>
+                        <p><%= data[i]['gender'] %></p>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="form-label">Father name</label>
+                        <p><%= data[i]['fatherName'] %></p>
+                    </div>
+
+                    <div class="col-6">
+                        <label class="form-label">Phone Number</label>                    
+                        <p><%= data[i]["fphone"] %></p>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="form-label">Mother name</label>
+                        <p><%= data[i]['motherName'] %></p>
+                    </div>
+
+                    <div class="col-6">
+                        <label class="form-label">Phone Number</label>
+                        <p><%= data[i]['mphone'] %></p>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Address</label>
+                        <p><%= data[i]['address'] %></p>
+                    </div>
+
+                    <div class="col-md-5">
+                        <label class="form-label">Country</label>
+                        <p><%= data[i]['country'] %></p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">State</label>
+                        <p><%= data[i]['state'] %></p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">Zip</label>
+                        <p><%= data[i]['zip'] %></p>
+                    </div>
+
+                    <div class="col-5">
+                        <label class="form-label">10th School</label>
+                        <p><%= data[i]['school'] %></p>
+                    </div>
+
+                    <div class="col-5">
+                        <label class="form-label">Address</label>
+                        <p><%= data[i]['schooladd'] %></p>
+                    </div>
+
+                    <div class="col-2">
+                        <label class="form-label">10th Grade</label>
+                        <p><%= data[i]['schoolgrade'] %></p>
+                    </div>
+
+                    <div class="col-12 flex-container">
+                        <label class="form-label">10th Marksheet</label>
+                        <img src="<%= data[i]['marksheetschool'] %>" alt="school marksheet" />
+                    </div>
+
+                    <div class="col-5">
+                        <label class="form-label">12th College</label>
+                        <p><%= data[i]['college'] %></p>
+                    </div>
+
+                    <div class="col-5">
+                        <label class="form-label">Address</label>
+                        <p><%= data[i]['collegeadd'] %></p>
+                    </div>
+
+                    <div class="col-2">
+                        <label class="form-label">12th Grade</label>
+                        <p><%= data[i]['collegegrade'] %></p>
+                    </div>
+
+                    <div class="col-12 flex-container">
+                        <label class="form-label">12th Marksheet</label>
+                        <img src="<%= data[i]['marksheetcollege'] %>" alt="colege marksheet" />
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <% if( prev>0 || n>0){ %>
+        <div class='navigate'>
+            <% if( prev>0 ){ %>
+                <form action="/previous" method="post">
+                    <button type="submit" class="btn btn-primary">Previous</button>
+                </form>
+            <% } %>
+            <% if( n>0 ){ %>
+                <form action="/next" method="post">
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+            <% } %>
+        </div>
+    <% } %>
+</body>
+</html>
