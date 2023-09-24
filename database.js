@@ -49,11 +49,11 @@ app.get('/',(req,res)=>{
     console.log(length);
     for (let i = 0; i < length; i++){
       
-      fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
+      fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
       data1[i]['marksheetschool']='output'+z+'.png';
         
       z=z+1;
-      fs.writeFileSync('public/output'+z+'.png', data1[i]['collegemarksheet']);
+      fs.writeFileSync('output'+z+'.png', data1[i]['collegemarksheet']);
       data1[i]['marksheetcollege']='output'+z+'.png';
       z=z+1;
       data1[i]['phoneNo']=String(data1[i]['phoneNO']);
@@ -82,11 +82,11 @@ app.post('/previous',(req,res)=>{
 
     for (let i = a; i < a+5; i++){
       
-      fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
+      fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
       data1[i]['marksheetschool']='output'+z+'.png';
         
       z=z+1;
-      fs.writeFileSync('public/output'+z+'.png', data1[i]['collegemarksheet']);
+      fs.writeFileSync('output'+z+'.png', data1[i]['collegemarksheet']);
       data1[i]['marksheetcollege']='output'+z+'.png';
       z=z+1;
       data1[i]['phoneNo']=String(data1[i]['phoneNO']);
@@ -119,13 +119,13 @@ app.post('/next',(req,res)=>{
     console.log(length,a);
     for (let i = a; i < length; i++){
       
-      fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
+      fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
       data1[i]['marksheetschool']='output'+z+'.png';
       
       console.log(z);
 
       z=z+1;
-      fs.writeFileSync('public/output'+z+'.png', data1[i]['collegemarksheet']);
+      fs.writeFileSync('output'+z+'.png', data1[i]['collegemarksheet']);
       data1[i]['marksheetcollege']='output'+z+'.png';
       z=z+1;
       data1[i]['phoneNo']=String(data1[i]['phoneNO']);
