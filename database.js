@@ -53,7 +53,7 @@ app.get('/',(req,res)=>{
       data1[i]['marksheetschool']='output'+z+'.png';
         
       z=z+1;
-      fs.writeFileSync('output'+z+'.png', data1[i]['collegemarksheet']);
+      fs.writeFileSync('public/output'+z+'.png', data1[i]['collegemarksheet']);
       data1[i]['marksheetcollege']='output'+z+'.png';
       z=z+1;
       data1[i]['phoneNo']=String(data1[i]['phoneNO']);
