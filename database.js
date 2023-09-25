@@ -15,7 +15,6 @@ let a=0;
 let b=0;
 let length1=0;
 let length=0;
-let z=0;
 
 const mysql = require('mysql');
 const connection = mysql.createConnection({
@@ -47,6 +46,7 @@ app.get('/',(req,res)=>{
       length=Object.keys(data1).length
     }
     console.log(length);
+    let z=0;
     for (let i = 0; i < length; i++){
       
       fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
@@ -80,13 +80,14 @@ app.post('/previous',(req,res)=>{
     if(err) throw err;
     var data1=res;
 
+    let z=0;
     for (let i = a; i < a+5; i++){
       
-      fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
+      fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
       data1[i]['marksheetschool']='output'+z+'.png';
         
       z=z+1;
-      fs.writeFileSync('output'+z+'.png', data1[i]['collegemarksheet']);
+      fs.writeFileSync('public/output'+z+'.png', data1[i]['collegemarksheet']);
       data1[i]['marksheetcollege']='output'+z+'.png';
       z=z+1;
       data1[i]['phoneNo']=String(data1[i]['phoneNO']);
@@ -118,15 +119,16 @@ app.post('/next',(req,res)=>{
     var data1=res;
     console.log(length,a);
 
+    let z=0;
     for (let i = a; i < length; i++){
       
-      fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
+      fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
       data1[i]['marksheetschool']='output'+z+'.png';
       
       console.log(z);
 
       z=z+1;
-      fs.writeFileSync('output'+z+'.png', data1[i]['collegemarksheet']);
+      fs.writeFileSync('public/output'+z+'.png', data1[i]['collegemarksheet']);
       data1[i]['marksheetcollege']='output'+z+'.png';
       z=z+1;
       data1[i]['phoneNo']=String(data1[i]['phoneNO']);
