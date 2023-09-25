@@ -15,6 +15,7 @@ let a=0;
 let b=0;
 let length1=0;
 let length=0;
+let z=0;
 
 const mysql = require('mysql');
 const connection = mysql.createConnection({
@@ -46,7 +47,6 @@ app.get('/',(req,res)=>{
       length=Object.keys(data1).length
     }
     console.log(length);
-    let z=1;
     for (let i = 0; i < length; i++){
       
       fs.writeFileSync('public/output'+z+'.png', data1[i]['schoolmarksheet']);
@@ -80,7 +80,6 @@ app.post('/previous',(req,res)=>{
     if(err) throw err;
     var data1=res;
 
-    let z=1;
     for (let i = a; i < a+5; i++){
       
       fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
@@ -119,7 +118,6 @@ app.post('/next',(req,res)=>{
     var data1=res;
     console.log(length,a);
 
-    let z=1;
     for (let i = a; i < length; i++){
       
       fs.writeFileSync('output'+z+'.png', data1[i]['schoolmarksheet']);
